@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queso the Bearded Dragon - Care & Education</title>
+    <title>Queso the Bearded Dragon | Educational Pet Care</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,8 +15,9 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #2c2c2c;
-            overflow-x: hidden;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
         .container {
@@ -26,494 +26,253 @@
             padding: 0 20px;
         }
 
-        /* Header */
         header {
-            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
-            color: white;
-            padding: 2rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="80" r="2.5" fill="rgba(255,255,255,0.1)"/></svg>');
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .header-content {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .header-content h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #FFE4B5, #FFFFFF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header-content p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .dragon-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        /* Navigation */
-        nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
 
-        .nav-content {
+        .header-content {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
             gap: 2rem;
         }
 
-        .nav-content a {
-            color: #8B4513;
+        nav a {
             text-decoration: none;
+            color: #333;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
         }
 
-        .nav-content a:hover {
-            background: #8B4513;
-            color: white;
-            transform: translateY(-2px);
+        nav a:hover {
+            color: #667eea;
         }
 
-        /* Sections */
-        section {
+        .hero {
+            text-align: center;
             padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 2rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-image {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            margin: 2rem auto;
+            display: block;
+        }
+
+        .content-section {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-content {
+            padding: 3rem;
         }
 
         .section-title {
-            text-align: center;
             font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 3rem;
-            color: #8B4513;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #D2691E, #8B4513);
-            border-radius: 2px;
-        }
-
-        /* About Queso */
-        .about-queso {
-            background: linear-gradient(135deg, #FFF8DC 0%, #F5E6D3 100%);
-        }
-
-        .queso-intro {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-
-        .queso-photo {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transform: rotate(-2deg);
-            transition: all 0.3s ease;
-        }
-
-        .queso-photo:hover {
-            transform: rotate(0deg) scale(1.05);
-        }
-
-        .queso-photo img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .queso-info {
-            padding: 2rem;
-        }
-
-        .queso-info h3 {
-            font-size: 1.8rem;
-            color: #8B4513;
-            margin-bottom: 1rem;
-        }
-
-        .queso-info p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #555;
-        }
-
-        .queso-facts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .fact-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2rem;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
         }
 
-        .fact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .fact-icon {
-            font-size: 2.5rem;
-            color: #D2691E;
-            margin-bottom: 1rem;
-        }
-
-        .fact-card h4 {
-            font-size: 1.2rem;
-            color: #8B4513;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Care Guide */
-        .care-guide {
-            background: white;
-        }
-
-        .care-topics {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin: 2rem 0;
         }
 
-        .care-topic {
-            background: linear-gradient(135deg, #F0F8F0 0%, #E8F5E8 100%);
+        .card {
+            background: #f8f9fa;
             padding: 2rem;
             border-radius: 15px;
-            border-left: 4px solid #8B4513;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .care-topic:hover {
-            transform: translateX(5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .care-topic h3 {
-            color: #8B4513;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .care-topic ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .care-topic li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: #555;
-        }
-
-        .care-topic li::before {
-            content: '🦎';
-            position: absolute;
-            left: 0;
-        }
-
-        /* Habitat Setup */
-        .habitat {
-            background: linear-gradient(135deg, #F5F5DC 0%, #E6E6FA 100%);
-        }
-
-        .habitat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .habitat-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .habitat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #8B4513, #D2691E);
-        }
-
-        .habitat-icon {
-            font-size: 3rem;
-            color: #D2691E;
-            margin-bottom: 1rem;
-        }
-
-        .habitat-item h3 {
-            color: #8B4513;
-            margin-bottom: 1rem;
-        }
-
-        /* Fun Facts */
-        .fun-facts {
-            background: white;
-        }
-
-        .facts-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .fact-bubble {
-            background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%);
-            padding: 2rem;
-            border-radius: 20px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .fact-bubble:hover {
+        .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        .fact-bubble::before {
-            content: '💡';
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            font-size: 2rem;
-            background: white;
-            border-radius: 50%;
-            padding: 0.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .fact-bubble h4 {
-            color: #8B4513;
-            font-size: 1.2rem;
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #667eea;
             margin-bottom: 1rem;
         }
 
-        /* Gallery */
-        .gallery {
-            background: linear-gradient(135deg, #F0F8FF 0%, #E0E6FF 100%);
+        .card p {
+            color: #666;
+            line-height: 1.6;
         }
 
-        .photo-grid {
+        .fact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .fact-list li {
+            background: #e8f2ff;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .care-guide {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .care-guide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .care-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
         }
 
-        .photo-item {
-            position: relative;
+        .care-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
             border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .photo-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        .care-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
         }
 
-        .photo-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            padding: 1rem;
-            transform: translateY(100%);
-            transition: all 0.3s ease;
-        }
-
-        .photo-item:hover .photo-overlay {
-            transform: translateY(0);
-        }
-
-        /* Contact */
-        .contact {
-            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+        .contact-section {
+            background: #333;
             color: white;
             text-align: center;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
         }
 
-        .contact .section-title {
-            color: white;
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .contact .section-title::after {
-            background: linear-gradient(90deg, #FFE4B5, #FFFFFF);
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .contact-btn {
+        .cta-button {
             display: inline-block;
-            background: white;
-            color: #8B4513;
+            background: #667eea;
+            color: white;
             padding: 1rem 2rem;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 1rem;
         }
 
-        .contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            background: #FFE4B5;
+        .cta-button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
 
-        /* Footer */
-        footer {
-            background: #2c2c2c;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
         }
 
-        footer p {
-            opacity: 0.8;
+        .photo-gallery img {
+            width: 100%;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
         }
 
-        /* Responsive Design */
+        .photo-gallery img:hover {
+            transform: scale(1.05);
+        }
+
         @media (max-width: 768px) {
-            .header-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .queso-intro {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .nav-content {
+            .header-content {
+                flex-direction: column;
                 gap: 1rem;
             }
 
-            .nav-content a {
-                padding: 0.3rem 0.8rem;
-                font-size: 0.9rem;
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-content {
+                padding: 2rem;
             }
 
             .section-title {
                 font-size: 2rem;
             }
-        }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            section {
-                padding: 3rem 0;
-            }
-
-            .header-content h1 {
-                font-size: 2rem;
-            }
-
-            .header-content p {
-                font-size: 1.1rem;
-            }
-
-            .fact-card, .care-topic, .habitat-item {
-                padding: 1.5rem;
+            .grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -522,294 +281,163 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="dragon-icon">🦎</div>
-                <h1>Queso the Bearded Dragon</h1>
-                <p>Your Complete Guide to Bearded Dragon Care & Our Beloved Queso</p>
+                <div class="logo">🦎 Queso's World</div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About Queso</a></li>
+                        <li><a href="#facts">Dragon Facts</a></li>
+                        <li><a href="#care">Care Guide</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
 
-    <nav>
-        <div class="container">
-            <div class="nav-content">
-                <a href="#about">Meet Queso</a>
-                <a href="#care">Care Guide</a>
-                <a href="#habitat">Habitat Setup</a>
-                <a href="#facts">Fun Facts</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
+    <div class="container">
+        <section class="hero">
+            <h1>Meet Queso</h1>
+            <p>Your guide to understanding and caring for bearded dragons</p>
+            <img src="queso-hero.jpg" alt="Queso the Bearded Dragon" class="hero-image">
+        </section>
 
-    <section id="about" class="about-queso">
-        <div class="container">
-            <h2 class="section-title">Meet Our Beloved Queso</h2>
-            
-            <div class="queso-intro">
-                <div class="queso-photo">
-                    <img src="queso1.jpg" alt="Queso the Bearded Dragon">
-                </div>
-                <div class="queso-info">
-                    <h3>About Queso</h3>
-                    <p>Meet Queso, our wonderful bearded dragon who has captured our hearts with his curious personality and gentle nature. Named after his beautiful golden coloration that resembles melted cheese, Queso has been our beloved companion and has taught us so much about these amazing reptiles.</p>
-                    <p>Through caring for Queso, we've learned the ins and outs of bearded dragon care, and we're excited to share our knowledge and experiences to help other bearded dragon enthusiasts provide the best care for their scaly friends.</p>
-                </div>
-            </div>
-
-            <div class="queso-facts">
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fas fa-birthday-cake"></i></div>
-                    <h4>Age</h4>
-                    <p>3 years old</p>
-                </div>
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fas fa-ruler"></i></div>
-                    <h4>Length</h4>
-                    <p>18 inches</p>
-                </div>
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fas fa-weight"></i></div>
-                    <h4>Weight</h4>
-                    <p>450 grams</p>
-                </div>
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fas fa-heart"></i></div>
-                    <h4>Favorite Food</h4>
-                    <p>Dubia roaches & squash</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="care" class="care-guide">
-        <div class="container">
-            <h2 class="section-title">Essential Care Guide</h2>
-            
-            <div class="care-topics">
-                <div class="care-topic">
-                    <h3><i class="fas fa-utensils"></i> Feeding</h3>
-                    <ul>
-                        <li>Feed juveniles 2-3 times daily</li>
-                        <li>Adults eat once daily or every other day</li>
-                        <li>80% vegetables, 20% insects for adults</li>
-                        <li>Dust insects with calcium powder</li>
-                        <li>Provide fresh water daily</li>
-                        <li>Remove uneaten food promptly</li>
-                    </ul>
-                </div>
-                
-                <div class="care-topic">
-                    <h3><i class="fas fa-thermometer-half"></i> Temperature</h3>
-                    <ul>
-                        <li>Basking spot: 100-110°F</li>
-                        <li>Cool side: 80-90°F</li>
-                        <li>Night temperature: 70-75°F</li>
-                        <li>Use ceramic heat emitters at night</li>
-                        <li>Digital thermometers for accuracy</li>
-                        <li>Temperature gradient is crucial</li>
-                    </ul>
-                </div>
-                
-                <div class="care-topic">
-                    <h3><i class="fas fa-sun"></i> Lighting</h3>
-                    <ul>
-                        <li>12 hours of UVB lighting daily</li>
-                        <li>Replace UVB bulbs every 6-12 months</li>
-                        <li>UVB helps calcium absorption</li>
-                        <li>Natural sunlight is beneficial</li>
-                        <li>Avoid glass barriers with UVB</li>
-                        <li>Use timer for consistent schedule</li>
-                    </ul>
-                </div>
-                
-                <div class="care-topic">
-                    <h3><i class="fas fa-tint"></i> Humidity</h3>
-                    <ul>
-                        <li>Maintain 30-40% humidity</li>
-                        <li>Use digital hygrometer</li>
-                        <li>Provide occasional baths</li>
-                        <li>Mist enclosure lightly if needed</li>
-                        <li>Good ventilation prevents mold</li>
-                        <li>Monitor during shedding periods</li>
-                    </ul>
-                </div>
-                
-                <div class="care-topic">
-                    <h3><i class="fas fa-home"></i> Enclosure</h3>
-                    <ul>
-                        <li>40-gallon minimum for babies</li>
-                        <li>75+ gallons for adults</li>
-                        <li>4x2x2 feet ideal adult size</li>
-                        <li>Secure screen top</li>
-                        <li>Multiple hiding spots</li>
-                        <li>Easy to clean surfaces</li>
-                    </ul>
-                </div>
-                
-                <div class="care-topic">
-                    <h3><i class="fas fa-user-md"></i> Health</h3>
-                    <ul>
-                        <li>Annual vet checkups</li>
-                        <li>Watch for lethargy or appetite loss</li>
-                        <li>Monitor bowel movements</li>
-                        <li>Check for stuck shed</li>
-                        <li>Quarantine new additions</li>
-                        <li>Keep detailed health records</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="habitat" class="habitat">
-        <div class="container">
-            <h2 class="section-title">Perfect Habitat Setup</h2>
-            
-            <div class="habitat-grid">
-                <div class="habitat-item">
-                    <div class="habitat-icon"><i class="fas fa-fire"></i></div>
-                    <h3>Heating</h3>
-                    <p>Basking bulbs, ceramic heat emitters, and under-tank heaters to create proper temperature gradients throughout the enclosure.</p>
-                </div>
-                
-                <div class="habitat-item">
-                    <div class="habitat-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3>UVB Lighting</h3>
-                    <p>Full-spectrum UVB lights are essential for calcium absorption and preventing metabolic bone disease.</p>
-                </div>
-                
-                <div class="habitat-item">
-                    <div class="habitat-icon"><i class="fas fa-cube"></i></div>
-                    <h3>Substrate</h3>
-                    <p>Reptile carpet, paper towels, or tile work best. Avoid sand and loose substrates that can cause impaction.</p>
-                </div>
-                
-                <div class="habitat-item">
-                    <div class="habitat-icon"><i class="fas fa-tree"></i></div>
-                    <h3>Decorations</h3>
-                    <p>Branches for basking and climbing, caves for hiding, and safe plants for enrichment and natural feel.</p>
-                </div>
-                
-                <div class="habitat-item">
-                    <div class="habitat-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    <h3>Monitoring</h3>
-                    <p>Digital thermometers, hygrometers, and timers to maintain consistent environmental conditions.</p>
-                </div>
-                
-                <div class="habitat-item">
-                    <div class="habitat-icon"><i class="fas fa-water"></i></div>
-                    <h3>Water & Food</h3>
-                    <p>Shallow water dishes and ceramic food bowls that are easy to clean and won't tip over easily.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="facts" class="fun-facts">
-        <div class="container">
-            <h2 class="section-title">Amazing Bearded Dragon Facts</h2>
-            
-            <div class="facts-container">
-                <div class="fact-bubble">
-                    <h4>Color Communication</h4>
-                    <p>Bearded dragons can change their color to regulate temperature and communicate emotions. Darker colors absorb more heat, while lighter colors reflect it.</p>
-                </div>
-                
-                <div class="fact-bubble">
-                    <h4>Third Eye</h4>
-                    <p>They have a primitive third eye (parietal eye) on top of their head that can detect shadows and changes in light from above, helping them spot aerial predators.</p>
-                </div>
-                
-                <div class="fact-bubble">
-                    <h4>Arm Waving</h4>
-                    <p>The arm waving behavior is a sign of submission or acknowledgment, often seen when they recognize their owner or encounter another bearded dragon.</p>
-                </div>
-                
-                <div class="fact-bubble">
-                    <h4>Swimming Ability</h4>
-                    <p>Despite being desert dwellers, bearded dragons are surprisingly good swimmers and can hold their breath underwater for several minutes.</p>
-                </div>
-                
-                <div class="fact-bubble">
-                    <h4>Brumation</h4>
-                    <p>Like hibernation in mammals, bearded dragons undergo brumation - a period of dormancy during cooler months where they sleep for weeks or months.</p>
-                </div>
-                
-                <div class="fact-bubble">
-                    <h4>Glass Surfing</h4>
-                    <p>When they run along glass walls, it's called "glass surfing" and can indicate stress, boredom, or seeing their reflection.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <h2 class="section-title">Queso's Photo Gallery</h2>
-            
-            <div class="photo-grid">
-                <div class="photo-item">
-                    <img src="queso2.jpg" alt="Queso basking">
-                    <div class="photo-overlay">
-                        <p>Queso enjoying his favorite basking spot</p>
+        <section id="about" class="content-section">
+            <div class="section-content">
+                <h2 class="section-title">About Queso the Bearded Dragon</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>🦎 Who is Queso?</h3>
+                        <p>Queso is our beloved bearded dragon who serves as an ambassador for reptile education. Named after his golden-yellow coloration that resembles melted cheese, Queso helps us teach others about proper bearded dragon care and the fascinating world of these incredible reptiles.</p>
                     </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="queso3.jpg" alt="Queso eating">
-                    <div class="photo-overlay">
-                        <p>Meal time with his favorite vegetables</p>
+                    <div class="card">
+                        <h3>📚 Educational Mission</h3>
+                        <p>Through Queso's story, we aim to educate potential and current bearded dragon owners about proper care, habitat requirements, nutrition, and the joy these amazing creatures can bring to our lives when properly cared for.</p>
                     </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="queso4.jpg" alt="Queso exploring">
-                    <div class="photo-overlay">
-                        <p>Exploring his terrarium setup</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="queso5.jpg" alt="Queso shedding">
-                    <div class="photo-overlay">
-                        <p>During his shedding process</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="queso6.jpg" alt="Queso portrait">
-                    <div class="photo-overlay">
-                        <p>A beautiful close-up portrait</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="queso7.jpg" alt="Queso with family">
-                    <div class="photo-overlay">
-                        <p>Queso bonding with his human family</p>
+                    <div class="card">
+                        <h3>🏠 Queso's Home</h3>
+                        <p>Queso lives in a carefully designed 75-gallon terrarium with proper UVB lighting, temperature gradients, and enrichment items. His habitat demonstrates the ideal setup for bearded dragon wellness and happiness.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <p>Have questions about bearded dragon care? Want to share your own beardie stories? We'd love to hear from you and help fellow reptile enthusiasts!</p>
-                <a href="mailto:jay.leone@exagrid.com" class="contact-btn">
-                    <i class="fas fa-envelope"></i> Contact Jay
-                </a>
+        <section id="facts" class="content-section">
+            <div class="section-content">
+                <h2 class="section-title">Amazing Bearded Dragon Facts</h2>
+                <ul class="fact-list">
+                    <li><strong>Scientific Name:</strong> Pogona vitticeps - they're native to Australia's arid regions</li>
+                    <li><strong>Temperature Regulation:</strong> Bearded dragons are ectothermic and need external heat sources to regulate their body temperature</li>
+                    <li><strong>Third Eye:</strong> They have a photosensitive organ called a parietal eye on top of their head that detects shadows and light changes</li>
+                    <li><strong>Communication:</strong> They communicate through arm waving, head bobbing, and beard darkening</li>
+                    <li><strong>Diet:</strong> Omnivores that eat both insects and vegetation, with diet changing as they age</li>
+                    <li><strong>Lifespan:</strong> Can live 10-15 years in captivity with proper care</li>
+                    <li><strong>Brumation:</strong> Like hibernation, they may enter a dormant state during cooler months</li>
+                    <li><strong>Swimming:</strong> Despite living in arid regions, they're surprisingly good swimmers!</li>
+                </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Queso the Bearded Dragon. Built with ❤️ for reptile lovers everywhere.</p>
-        </div>
-    </footer>
+        <section id="care" class="care-guide">
+            <div class="container">
+                <h2>Bearded Dragon Care Guide</h2>
+                <div class="care-grid">
+                    <div class="care-item">
+                        <h4>🏠 Habitat</h4>
+                        <p>75+ gallon tank, proper substrate, hiding spots, basking area, and climbing branches</p>
+                    </div>
+                    <div class="care-item">
+                        <h4>🌡️ Temperature</h4>
+                        <p>Basking spot: 95-105°F, Cool side: 75-85°F, Night: 65-75°F</p>
+                    </div>
+                    <div class="care-item">
+                        <h4>💡 Lighting</h4>
+                        <p>UVB lighting 10-12 hours daily, replace bulbs every 6-12 months</p>
+                    </div>
+                    <div class="care-item">
+                        <h4>🥗 Diet</h4>
+                        <p>Juveniles: 80% insects, 20% vegetables. Adults: 20% insects, 80% vegetables</p>
+                    </div>
+                    <div class="care-item">
+                        <h4>💧 Hydration</h4>
+                        <p>Fresh water dish, regular baths, misting vegetables for extra hydration</p>
+                    </div>
+                    <div class="care-item">
+                        <h4>🏥 Health</h4>
+                        <p>Regular vet checkups, watch for signs of illness, maintain proper hygiene</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="content-section">
+            <div class="section-content">
+                <h2 class="section-title">Queso's Photo Gallery</h2>
+                <div class="photo-gallery">
+                    <img src="queso-basking.jpg" alt="Queso basking under his heat lamp">
+                    <img src="queso-eating.jpg" alt="Queso enjoying his favorite vegetables">
+                    <img src="queso-exploring.jpg" alt="Queso exploring his terrarium">
+                    <img src="queso-portrait.jpg" alt="Close-up portrait of Queso">
+                    <img src="queso-bath.jpg" alt="Queso taking a relaxing bath">
+                    <img src="queso-sleeping.jpg" alt="Queso in his favorite sleeping spot">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Questions About Bearded Dragon Care?</h2>
+            <p>Whether you're a new bearded dragon owner or considering getting one, we're here to help! Get in touch with any questions about proper care, setup, or anything else related to these amazing reptiles.</p>
+            <a href="mailto:jay.leone@exagrid.com" class="cta-button">Contact Us for Advice</a>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .care-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
